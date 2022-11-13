@@ -1,0 +1,183 @@
+/*
+Color palette
+
+Green       : #8AFF80
+Soft orange : #FFCA80
+Pink        : #FF80BF
+Purple      : #9580FF
+Orange      : #FF9580
+Yellow      : #FFFF80
+Black       : #15171B
+Gray        : #1D1E26
+*/
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: Consolas, monospace, sans-serif;
+	font-size: 100%;
+	color: white;
+}
+
+:root {
+	--color-green: #8AFF80;
+	--color-soft-orange: #FFCA80;
+	--color-pink: #FF80BF;
+	--color-purple: #9580FF;
+	--color-orange: #FF9580;
+	--color-yellow: #FFFF80;
+	--color-black: #15171B;
+	--color-gray: #1D1E26;
+}
+
+#main-container {
+	display: flex;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--color-gray);
+}
+
+
+	/* Navbar */
+
+#navbar {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: space-around;
+
+	width: 8rem;
+	
+	background-color: var(--color-black);
+}
+
+.navbar-icon {
+	width: 3rem;
+}
+
+.navbar-element {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	gap: 0.5rem;
+
+	color: white;
+	text-decoration: none;
+}
+
+#app-logo {
+	width: 8rem;	
+}
+
+
+
+	/* Main */
+
+main {
+	flex-grow: 1;
+	padding: 1rem;
+}
+
+
+#hamburger-menu {
+	visibility: hidden;
+}
+
+#page-header {
+	display: flex;
+	
+	align-items: center;
+	justify-content: center;
+
+	gap: 1rem;
+
+	width: 80%;
+	padding: 0.5rem;
+	margin: 0px auto;
+
+	border-radius: 1rem;
+	background-color: var(--color-black);
+}
+
+#page-title::before, #page-title:after {
+	display: inline-block;
+	content: "";
+	
+	width: 0.8rem;
+	height: 0.8rem;
+	margin: 0px 1rem;
+	
+	border-radius: 100%;
+	background-color: var(--color-green);
+}
+
+
+
+	/* Responsiveness */
+
+@media only screen and (max-width: 450px) {
+	/* Also adding the id to fight specificity */
+	html {
+		font-size: 80%;
+	}
+	
+	main {
+		padding: 0px;
+	}
+
+	.blured {
+		filter: blur(1px);
+	}
+
+	#page-header {
+		padding: 0.5rem;
+		width: 100%;
+		border-radius: 0%;
+	}
+
+	#page-header > * {
+		margin-right: auto;
+	}
+
+	#navbar {
+		position: absolute;
+		z-index: 100;
+		top: 0px;
+		left: 0px;
+
+		width: 10rem;
+		height: 100vh;
+	}
+
+	#navbar.hidden {
+		visibility: hidden;
+	}
+
+	#hamburger-menu {
+		visibility: visible;
+		display: flex;
+		flex-direction: column;
+
+		margin-left: 0.5rem;
+
+		gap: 0.5rem;
+	}
+
+	#hamburger-menu > * {
+		display: inline-block;
+
+		width: 2rem;
+		height: 0.2rem;
+
+		background-color: white;
+	}
+}
